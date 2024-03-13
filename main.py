@@ -12,27 +12,46 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption('TrapdoorTango')
 clock = pygame.time.Clock()
 
-font = pygame.font.Font(size=24)
+def getFont(size):
+    return pygame.font.Font('assets/font.ttf', size)
 
 def start_screen():
     while True:
+        screen.fill('#0e677d')
+
+        # Getting the Mouse Position in the Title Screen
+        menu_mouse_pos = pygame.mouse.get_pos()
+
+        # Setting up the Text for the Title Screen
+        menu_text = getFont(80).render('TrapdoorTango', True, '#b68f40')
+        menu_rect = menu_text.get_rect(center=(640, 200))
+
+        screen.blit(menu_text, menu_rect)
+
+        # Creating the Button Objects for the Title Screen
+        play_button = Button(pos=(640, 400), text_input='PLAY', font=getFont(70), base_color='#b68f40', hovering_color='#e8b754')
+        
+        quit_button = Button(pos=(640, 550), text_input='QUIT', font=getFont(70), base_color='#b68f40', hovering_color='#e8b754')
+
+        
+        # draw buttons on screen and change Color on Hover
+        for button in [play_button, quit_button]:
+            button.changeColor(menu_mouse_pos)
+            button.draw(screen)
+        
+        # Game Loop
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.exit()
+                pygame.quit()
                 sys.exit()
-    
-    button = Button((640,200), 'Start Game', font, 'red', 'blue')
-    button.draw(screen)
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if play_button.checkForMouseCollision(menu_mouse_pos):
+                    pass
+                if quit_button.checkForMouseCollision(menu_mouse_pos):
+                    pygame.quit()
+                    sys.exit()
+
+        pygame.display.update()
         
 
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-    
-    Level(screen).run()
-    # button = Button((640,200), 'Start Game', font, 'red', 'blue')
-    # button.draw(screen)
-    
-    pygame.display.update()
+start_screen()
