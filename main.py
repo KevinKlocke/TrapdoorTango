@@ -31,11 +31,13 @@ def start_screen():
         # Creating the Button Objects for the Title Screen
         play_button = Button(pos=(640, 400), text_input='PLAY', font=getFont(70), base_color='#b68f40', hovering_color='#e8b754')
         
-        quit_button = Button(pos=(640, 550), text_input='QUIT', font=getFont(70), base_color='#b68f40', hovering_color='#e8b754')
+        quit_button = Button(pos=(640, 700), text_input='QUIT', font=getFont(70), base_color='#b68f40', hovering_color='#e8b754')
+        
+        fullscreen_button = Button(pos=(640, 550), text_input='FSCREEN', font=getFont(70), base_color='#b68f40', hovering_color='#e8b754')
 
         
         # draw buttons on screen and change Color on Hover
-        for button in [play_button, quit_button]:
+        for button in [play_button, quit_button, fullscreen_button]:
             button.changeColor(menu_mouse_pos)
             button.draw(screen)
         
@@ -48,12 +50,41 @@ def start_screen():
                 pygame.display.toggle_fullscreen()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if play_button.checkForMouseCollision(menu_mouse_pos):
-                    pass
+                    play()
+                if fullscreen_button.checkForMouseCollision(menu_mouse_pos):
+                    pygame.display.toggle_fullscreen()
                 if quit_button.checkForMouseCollision(menu_mouse_pos):
                     pygame.quit()
                     sys.exit()
 
         pygame.display.update()
+     
+def play():
+    # creating the level object
+    level = Level(screen)
+
+    # Game Loop
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    start_screen()
         
+        screen.fill('#d6d0b8')
+
+        clock.tick(60)
+
+        level.run()
+        
+        if level.checkForGameOver():
+            pass
+
+        if level.checkForWin():
+            pass
+        
+        pygame.display.update()   
 
 start_screen()
