@@ -1,3 +1,7 @@
+import pygame
+
+pygame.init()
+
 LEVEL_MAP1 = [
 'XXXXXXXXXXXXXXXXXXXX',
 'X                 XX',

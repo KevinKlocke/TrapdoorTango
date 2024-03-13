@@ -44,6 +44,8 @@ def start_screen():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_f:
+                pygame.display.toggle_fullscreen()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if play_button.checkForMouseCollision(menu_mouse_pos):
                     pass
