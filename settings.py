@@ -17,6 +17,21 @@ LEVEL_MAP1 = [
 'XXXXXXX  XXXXX   XXX',
 ]
 
+LEVEL_MAP2 = [
+'XXXXXXXXXXXXXXXXXXXX',
+'X                 XX',
+'XP                XX',
+'XXX               XX',
+'XXX               XX',
+'XXXX        XX   DXX',
+'XXXX      XX     XXX',
+'XXX   XXXXXX     XXX',
+'X     XXXXXXX    XXX',
+'X  XXXXXXXXXXX   XXX',
+'X  XXXXXXXXXXX   XXX',
+'XXXXXXXXXXXXXX   XXX',
+]
+
 
 TIlE_SIZE = 64
 

@@ -5,10 +5,10 @@ from settings import *
 from player import Player
 
 class Level():
-    def __init__(self, surface):
+    def __init__(self, surface, level_data):
         self.display_surface = surface
         self.isGameOver = False
-        self.level_data = LEVEL_MAP1
+        self.level_data = level_data
         self.setup_level(self.level_data)
 
     def setup_level(self, layout):
