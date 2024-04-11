@@ -1,6 +1,7 @@
 import pygame
 from tiles import Tile
 from door import Door
+from trap import Trap
 from settings import *
 from player import Player
 
@@ -15,6 +16,7 @@ class Level():
         self.tiles = pygame.sprite.Group()
         self.player = pygame.sprite.GroupSingle()
         self.door = pygame.sprite.GroupSingle()
+        self.trap = pygame.sprite.Group()
 
         for row_index,row in enumerate(layout):
             for col_index,cell in enumerate(row):
@@ -30,6 +32,9 @@ class Level():
                 if cell == 'D':
                     door = Door((x ,y))
                     self.door.add(door)
+                if cell == 'T':
+                    trap = Trap((x, y), TIlE_SIZE)
+                    self.trap.add(trap)
 
 
     def horizontal_movement_collision(self):
@@ -75,6 +80,7 @@ class Level():
         # level tiles
         self.tiles.draw(self.display_surface)
         self.door.draw(self.display_surface)
+        self.trap.draw(self.display_surface)
 
         # player
         self.player.update()
