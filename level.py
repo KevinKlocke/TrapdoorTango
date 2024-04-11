@@ -28,7 +28,7 @@ class Level():
                     player = Player((x,y))
                     self.player.add(player)
                 if cell == 'D':
-                    door = Door((x +16,y))
+                    door = Door((x ,y))
                     self.door.add(door)
 
 

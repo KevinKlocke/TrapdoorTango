@@ -4,7 +4,7 @@ class Button():
     def __init__(self, pos, text_input, font, base_color, hovering_color):
         pygame.init()
         # creating the Button Surface
-        self.image = pygame.Surface((530, 109))
+        self.image = pygame.Surface((530, 100))
         self.image.fill('#735a28')
         
         # getting the position x,y of the button

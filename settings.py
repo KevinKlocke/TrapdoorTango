@@ -22,14 +22,14 @@ LEVEL_MAP2 = [
 'X                 XX',
 'XP                XX',
 'XXX               XX',
-'XXX               XX',
-'XXXX        XX   DXX',
-'XXXX      XX     XXX',
-'XXX   XXXXXX     XXX',
-'X     XXXXXXX    XXX',
-'X  XXXXXXXXXXX   XXX',
-'X  XXXXXXXXXXX   XXX',
-'XXXXXXXXXXXXXX   XXX',
+'XXX  X            XX',
+'XXX  X      XX   DXX',
+'XXX  X    XX     XXX',
+'XXX  XXXXXXX     XXX',
+'XXX  XXXXXXXX    XXX',
+'XXX  XXXXXXXXX   XXX',
+'XXX  XXXXXXXXX   XXX',
+'XXX  XXXXXXXXX   XXX',
 ]
 
 

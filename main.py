@@ -31,11 +31,11 @@ def start_screen():
         screen.blit(menu_text, menu_rect)
 
         # Creating the Button Objects for the Title Screen
-        play_button = Button(pos=(640, 370), text_input='PLAY', font=getFont(70), base_color='#b68f40', hovering_color='#e8b754')
+        play_button = Button(pos=(640, 370), text_input='PLAY', font=getFont(40), base_color='#b68f40', hovering_color='#e8b754')
         
-        quit_button = Button(pos=(640, 630), text_input='QUIT', font=getFont(70), base_color='#b68f40', hovering_color='#e8b754')
+        quit_button = Button(pos=(640, 630), text_input='QUIT', font=getFont(40), base_color='#b68f40', hovering_color='#e8b754')
         
-        fullscreen_button = Button(pos=(640, 500), text_input='FSCREEN', font=getFont(70), base_color='#b68f40', hovering_color='#e8b754')
+        fullscreen_button = Button(pos=(640, 500), text_input='FULLSCREEN', font=getFont(40), base_color='#b68f40', hovering_color='#e8b754')
 
         
         # draw buttons on screen and change Color on Hover
@@ -77,10 +77,17 @@ def play():
                     start_screen()
         
         screen.fill('#d6d0b8')
+        
+        level_text = getFont(40).render(f'Level {len(level_won) + 1}', True, '#b68f40')
+        level_rect = level_text.get_rect(center=(640, 30))
+
+        
 
         clock.tick(60)
 
         level.run()
+        
+        screen.blit(level_text, level_rect)
         
         if level.checkForGameOver():
             game_over()
