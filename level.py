@@ -2,6 +2,7 @@ import pygame
 from tiles import Tile
 from door import Door
 from trap import Trap
+from spike import Spike
 from settings import *
 from player import Player
 
@@ -16,7 +17,8 @@ class Level():
         self.tiles = pygame.sprite.Group()
         self.player = pygame.sprite.GroupSingle()
         self.door = pygame.sprite.GroupSingle()
-        self.trap = pygame.sprite.Group()
+        self.traps = pygame.sprite.Group()
+        self.spikes = pygame.sprite.Group()
 
         for row_index,row in enumerate(layout):
             for col_index,cell in enumerate(row):
@@ -34,7 +36,10 @@ class Level():
                     self.door.add(door)
                 if cell == 'T':
                     trap = Trap((x, y), TIlE_SIZE)
-                    self.trap.add(trap)
+                    self.traps.add(trap)
+                if cell == 'S':
+                    spike = Spike((x ,y + 64))
+                    self.spikes.add(spike)
 
 
     def horizontal_movement_collision(self):
@@ -48,6 +53,10 @@ class Level():
                     player.rect.left = sprite.rect.right
                 elif player.direction.x > 0:
                     player.rect.right = sprite.rect.left
+        
+        for trap in self.traps.sprites():
+            if trap.rect.colliderect(player.rect):
+                self.traps.remove(trap)
 
     def vertical_movement_collision(self):
         player = self.player.sprite
@@ -75,12 +84,18 @@ class Level():
         if player.rect.bottom > 768:
             self.isGameOver = True
             return self.isGameOver
+        for spike in self.spikes.sprites():
+            if spike.rect.colliderect(player.rect):
+                self.isGameOver = True
+                return self.isGameOver
+        
 
     def run(self):
         # level tiles
         self.tiles.draw(self.display_surface)
         self.door.draw(self.display_surface)
-        self.trap.draw(self.display_surface)
+        self.traps.draw(self.display_surface)
+        self.spikes.draw(self.display_surface)
 
         # player
         self.player.update()

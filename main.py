@@ -63,8 +63,11 @@ def start_screen():
      
 def play():
     # creating the level object
-    level_maps = [LEVEL_MAP1, LEVEL_MAP2]
-    level = Level(screen, level_maps[len(level_won)])
+    level_maps = [LEVEL_MAP1, LEVEL_MAP2, LEVEL_MAP3, LEVEL_MAP4]
+    if len(level_won) < len(level_maps):
+        level = Level(screen, level_maps[len(level_won)])
+    else:
+        start_screen()
 
     # Game Loop
     while True:
@@ -153,6 +156,7 @@ def level_ending():
                     play()
                 if event.key == pygame.K_ESCAPE:
                     start_screen()
+        
 
         pygame.display.update()
 
