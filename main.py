@@ -17,7 +17,6 @@ pygame.display.set_caption('TrapdoorTango')
 clock = pygame.time.Clock()
 
 
-
 def start_screen():
     while True:
         screen.fill('#0e677d')

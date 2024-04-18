@@ -35,16 +35,16 @@ LEVEL_MAP1 = [
 LEVEL_MAP2 = [
 'XXXXXXXXXXXXXXXXXXXX',
 'X                 XX',
+'X                 XX',
 'XP                XX',
 'XXX               XX',
-'XXXTTTX           XX',
-'XXX   X     XX   DXX',
+'XXXTTTX     XX   DXX',
 'XXX   X   XX     XXX',
-'XXX  XXXXXXX     XXX',
-'XXX  XXXXXXXX    XXX',
-'XXX  XXXXXXXXX   XXX',
-'XXX  XXXXXXXXX   XXX',
-'XXX  XXXXXXXXX   XXX',
+'XXX   XXXXXX     XXX',
+'XXX   XXXXXXX    XXX',
+'XXX   XXXXXXX    XXX',
+'XXX   XXXXXXX    XXX',
+'XXX   XXXXXXX    XXX',
 ]
 
 LEVEL_MAP3 = [
