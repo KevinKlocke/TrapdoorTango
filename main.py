@@ -4,6 +4,7 @@ from settings import *
 from level import Level
 from button import Button
 from tutorial import Tutorial
+from font import getFont
 
 # initialize pygame 
 pygame.init()
@@ -15,8 +16,7 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption('TrapdoorTango')
 clock = pygame.time.Clock()
 
-def getFont(size):
-    return pygame.font.Font('assets/font.ttf', size)
+
 
 def start_screen():
     while True:

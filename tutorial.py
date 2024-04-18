@@ -10,6 +10,8 @@ class Tutorial():
         self.isGameOver = False
         self.level_data = level_data
         self.setup_level(self.level_data)
+        self.image = pygame.image.load('./assets/move.png').convert_alpha()
+        self.rect = self.image.get_rect(midtop = (640, 400))
 
     def setup_level(self, layout):
         self.tiles = pygame.sprite.Group()
@@ -84,5 +86,6 @@ class Tutorial():
         self.checkForWin()
         self.player.draw(self.display_surface)
         self.checkForGameOver()
+        self.display_surface.blit(self.image, self.rect)
     
         
