@@ -3,6 +3,7 @@ from tiles import Tile
 from door import Door
 from settings import *
 from player import Player
+from font import getFont
 
 class Tutorial():
     def __init__(self, surface, level_data):
@@ -12,6 +13,8 @@ class Tutorial():
         self.setup_level(self.level_data)
         self.image = pygame.image.load('./assets/move.png').convert_alpha()
         self.rect = self.image.get_rect(midtop = (640, 400))
+        self.text =  getFont(40).render('How to move', True, '#b68f40')
+        self.text_rect = self.text.get_rect(center=(640, 450))
 
     def setup_level(self, layout):
         self.tiles = pygame.sprite.Group()
@@ -87,5 +90,6 @@ class Tutorial():
         self.player.draw(self.display_surface)
         self.checkForGameOver()
         self.display_surface.blit(self.image, self.rect)
+        self.display_surface.blit(self.text, self.text_rect)
     
         
