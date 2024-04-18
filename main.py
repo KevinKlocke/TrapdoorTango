@@ -3,6 +3,7 @@ import pygame, sys
 from settings import *
 from level import Level
 from button import Button
+from tutorial import Tutorial
 
 # initialize pygame 
 pygame.init()
@@ -65,7 +66,10 @@ def play():
     # creating the level object
     level_maps = [LEVEL_MAP0, LEVEL_MAP1, LEVEL_MAP2, LEVEL_MAP3, LEVEL_MAP4]
     if len(level_won) < len(level_maps):
-        level = Level(screen, level_maps[len(level_won)])
+        if len(level_won) == 0:
+            level = Tutorial(screen, level_maps[len(level_won)])
+        else:
+            level = Level(screen, level_maps[len(level_won)])
     else:
         start_screen()
 
@@ -87,8 +91,7 @@ def play():
             level_text = getFont(40).render(f'Level {len(level_won)}', True, '#b68f40')
         level_rect = level_text.get_rect(center=(640, 30))
 
-        
-
+    
         clock.tick(60)
 
         level.run()
@@ -139,7 +142,7 @@ def level_ending():
         if len(level_won) == 0:
             success_text = getFont(50).render('Tutorial Completed', True, 'Green')
         else:
-            success_text = getFont(50).render('Tutorial Completed', True, 'Green')
+            success_text = getFont(50).render(f'Level {len(level_won)} Completed', True, 'Green')
         success_rect = success_text.get_rect(center=(640, 250))
 
         continue_text = getFont(30).render('Press ENTER For The Next Level!', True, 'White')
