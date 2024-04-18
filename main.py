@@ -63,7 +63,7 @@ def start_screen():
      
 def play():
     # creating the level object
-    level_maps = [LEVEL_MAP1, LEVEL_MAP2, LEVEL_MAP3, LEVEL_MAP4]
+    level_maps = [LEVEL_MAP0, LEVEL_MAP1, LEVEL_MAP2, LEVEL_MAP3, LEVEL_MAP4]
     if len(level_won) < len(level_maps):
         level = Level(screen, level_maps[len(level_won)])
     else:
@@ -81,7 +81,10 @@ def play():
         
         screen.fill('#d6d0b8')
         
-        level_text = getFont(40).render(f'Level {len(level_won) + 1}', True, '#b68f40')
+        if len(level_won) == 0:
+            level_text = getFont(40).render('Tutorial', True, '#b68f40')
+        else:
+            level_text = getFont(40).render(f'Level {len(level_won)}', True, '#b68f40')
         level_rect = level_text.get_rect(center=(640, 30))
 
         
@@ -133,7 +136,10 @@ def level_ending():
     while True:
         screen.fill('#0e677d')
 
-        success_text = getFont(50).render(f'Level {len(level_won) + 1} Completed', True, 'Green')
+        if len(level_won) == 0:
+            success_text = getFont(50).render('Tutorial Completed', True, 'Green')
+        else:
+            success_text = getFont(50).render('Tutorial Completed', True, 'Green')
         success_rect = success_text.get_rect(center=(640, 250))
 
         continue_text = getFont(30).render('Press ENTER For The Next Level!', True, 'White')

@@ -2,6 +2,21 @@ import pygame
 
 pygame.init()
 
+LEVEL_MAP0 = [
+'XXXXXXXXXXXXXXXXXXXX',
+'X                 XX',
+'X                 XX',
+'X                 XX',
+'X                 XX',
+'XP               DXX',
+'XXXXXXXXXXXXXXXXXXXX',
+'XXXXXXXXXXXXXXXXXXXX',
+'XXXXXXXXXXXXXXXXXXXX',
+'XXXXXXXXXXXXXXXXXXXX',
+'XXXXXXXXXXXXXXXXXXXX',
+'XXXXXXXXXXXXXXXXXXXX'
+]
+
 LEVEL_MAP1 = [
 'XXXXXXXXXXXXXXXXXXXX',
 'X                 XX',
@@ -22,9 +37,9 @@ LEVEL_MAP2 = [
 'X                 XX',
 'XP                XX',
 'XXX               XX',
-'XXXTTX            XX',
-'XXX  X      XX   DXX',
-'XXX  X    XX     XXX',
+'XXXTTTX           XX',
+'XXX   X     XX   DXX',
+'XXX   X   XX     XXX',
 'XXX  XXXXXXX     XXX',
 'XXX  XXXXXXXX    XXX',
 'XXX  XXXXXXXXX   XXX',
